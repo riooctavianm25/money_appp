@@ -11,7 +11,7 @@ String getIncomeResponseToJson(GetIncomeResponse data) => json.encode(data.toJso
 class GetIncomeResponse {
     final String status;
     final String message;
-    final List<Datum> data;
+    final Data data;
 
     GetIncomeResponse({
         required this.status,
@@ -22,36 +22,28 @@ class GetIncomeResponse {
     factory GetIncomeResponse.fromJson(Map<String, dynamic> json) => GetIncomeResponse(
         status: json["status"],
         message: json["message"],
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+        data: Data.fromJson(json["data"]),
     );
 
     Map<String, dynamic> toJson() => {
         "status": status,
         "message": message,
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
+        "data": data.toJson(),
     };
 }
 
-class Datum {
-    final int id;
-    final String name;
-    final String type;
+class Data {
+    final String totalIncome;
 
-    Datum({
-        required this.id,
-        required this.name,
-        required this.type,
+    Data({
+        required this.totalIncome,
     });
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        id: json["id"],
-        name: json["name"],
-        type: json["type"],
+    factory Data.fromJson(Map<String, dynamic> json) => Data(
+        totalIncome: json["total_income"],
     );
 
     Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "type": type,
+        "total_income": totalIncome,
     };
 }

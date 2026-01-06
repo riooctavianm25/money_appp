@@ -43,6 +43,7 @@ class TransactionRepository {
     } catch (e) {
       throw Exception('Error creating transaction: $e');
     }
+  }
 
     Future<GetTransactionsResponse> getTransaction() async {
       final response = await apiService.get('transactions', {});
@@ -59,4 +60,3 @@ class TransactionRepository {
       }
     }
   }
-}
