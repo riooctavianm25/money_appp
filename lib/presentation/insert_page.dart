@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:money_appp/data/repository/category_repository.dart';
-import 'package:money_appp/data/repository/transacion_repository.dart';
+import 'package:money_appp/data/repository/transaction_repository.dart';
 import 'package:money_appp/data/service/http_service.dart';
 import 'package:money_appp/data/use_case/request/add_transaction_request.dart';
 import 'package:money_appp/data/use_case/response/get_category_response.dart';

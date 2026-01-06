@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:money_appp/data/model/Transaction.dart';
-import 'package:money_appp/data/repository/transacion_repository.dart';
+import 'package:money_appp/data/repository/transaction_repository.dart';
 import 'package:money_appp/data/service/http_service.dart';
 import 'package:money_appp/presentation/insert_page.dart';
 

@@ -43,5 +43,20 @@ class TransactionRepository {
     } catch (e) {
       throw Exception('Error creating transaction: $e');
     }
+
+    Future<GetTransactionsResponse> getTransaction() async {
+      final response = await apiService.get('transactions', {});
+      try {
+        if (response.statusCode == 200) {
+          final responseData = GetTransactionsResponse.fromJson(response.body);
+          return responseData;
+        } else {
+          final errorResponse = GetTransactionsResponse.fromJson(response.body);
+          return errorResponse;
+        }
+      } catch (e) {
+        throw Exception('Error parsing transaction: $e');
+      }
+    }
   }
 }
