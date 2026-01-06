@@ -10,6 +10,7 @@ class Transaction {
   String? image;
   DateTime createdAt;
   DateTime updatedAt;
+
   Transaction({
     required this.id,
     required this.categoryName,
@@ -24,7 +25,9 @@ class Transaction {
 
   factory Transaction.fromJson(String str) =>
       Transaction.fromMap(json.decode(str));
+
   String toJson() => json.encode(toMap());
+
   factory Transaction.fromMap(Map<String, dynamic> json) => Transaction(
     id: json["id"],
     categoryName: json["category_name"],
@@ -36,13 +39,14 @@ class Transaction {
     createdAt: DateTime.parse(json["created_at"]),
     updatedAt: DateTime.parse(json["updated_at"]),
   );
+
   Map<String, dynamic> toMap() => {
     "id": id,
     "category_name": categoryName,
     "category_type": categoryType,
     "amount": amount,
     "transaction_date":
-        "${transactionDate.year.toString().padLeft(4, '0')} ${transactionDate.month.toString().padLeft(2, '0')} ${transactionDate.day.toString().padLeft(2, '0')}",
+        "${transactionDate.year.toString().padLeft(4, '0')}-${transactionDate.month.toString().padLeft(2, '0')}-${transactionDate.day.toString().padLeft(2, '0')}",
     "note": note,
     "image": image,
     "created_at": createdAt.toIso8601String(),
