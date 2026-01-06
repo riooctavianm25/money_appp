@@ -144,24 +144,24 @@ class _InsertPageState extends State<InsertPage> {
           key: _formKey,
           child: ListView(
             children: [
-              // DropdownButtonFormField<int>(
-              //   value: selectedCategoryId,
-              //   items: (categoryResponse?.data ?? [])
-              //       .map(
-              //         (cat) => DropdownMenuItem(
-              //           value: cat.id,
-              //           child: Text(cat.name),
-              //         ),
-              //       )
-              //       .toList(),
-              //   onChanged: (v) {
-              //     setState(() {
-              //       selectedCategoryId = v;
-              //     });
-              //   },
-              //   decoration: const InputDecoration(labelText: 'Kategori'),
-              //   validator: (v) => v == null ? 'Pilih kategori' : null,
-              // ),
+              DropdownButtonFormField<int>(
+                value: selectedCategoryId,
+                items: (categoryResponse?.data ?? [])
+                    .map(
+                      (cat) => DropdownMenuItem(
+                        value: cat.id,
+                        child: Text(cat.name),
+                      ),
+                    )
+                    .toList(),
+                onChanged: (v) {
+                  setState(() {
+                    selectedCategoryId = v;
+                  });
+                },
+                decoration: const InputDecoration(labelText: 'Kategori'),
+                validator: (v) => v == null ? 'Pilih kategori' : null,
+              ),
               const SizedBox(height: 12),
               TextFormField(
                 controller: _descCtrl,
